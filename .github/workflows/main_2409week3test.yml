@@ -21,6 +21,11 @@ jobs:
         with:
           node-version: '18.x'
 
+      # Setting environment variables from GitHub secrets
+      - name: Setup environment variables
+        run: echo "NODE_ENV=${{ secrets.NODE_ENV }}" >> $GITHUB_ENV
+             echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
+
       - name: npm install, build, and test
         run: |
           npm install
