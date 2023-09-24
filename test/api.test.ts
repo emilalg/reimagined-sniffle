@@ -27,6 +27,10 @@ import {CatTest} from '../src/interfaces/Cat';
 
 describe('Testing graphql api', () => {
   beforeAll(async () => {
+    console.log(
+      'before all',
+      (process.env.DATABASE_URL as string).substring(0, 10)
+    );
     await mongoose.connect(process.env.DATABASE_URL as string);
   });
 
